@@ -7,9 +7,12 @@ export default {
   theme: {
     extend: {},
     fontFamily: {
-      
+      nunito: ['nunito', 'Nunito'],
+      helvetica: ['helvetica', 'sans-serif'],
+      Arial: [ 'Arial', 'sans-serif']
     }
   },
   plugins: [],
 }
 
+// nunito,helvetica,Arial,sans-serif
