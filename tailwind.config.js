@@ -11,7 +11,7 @@ export default {
       helvetica: ['helvetica', 'sans-serif'],
       Arial: [ 'Arial', 'sans-serif'],
       europa: ['europa', 'sans-serif']
-    }
+    },
   },
   plugins: [],
 }
