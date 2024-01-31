@@ -1,6 +1,6 @@
 import Logo from "./Logo.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
 import { navItem } from "/src/Data/NavItem.jsx";
@@ -21,7 +21,7 @@ const Header = () => {
         {/* the sidebar for mobile */}
         <div
           className={clsx(
-            "fixed top-0 right-0 h-full w-screen lg:hidden bg-black/30 z-10 transition duration-300 ease-in-out",
+            "fixed top-0 right-0 h-full w-[100%] lg:hidden bg-black/30 z-10 transition duration-300 ease-in-out",
             { "translate-x-0": open, "-translate-x-full": !open }
           )}
         >
@@ -51,22 +51,24 @@ const Header = () => {
         {/* navbar for desktop */}
         <div className="hidden lg:flex flex-row items-center justify-between w-screen">
           <div>
-          <Logo />
-          </div >
+            <Logo />
+          </div>
           <div className="flex justify-between items-center gap-5">
-          <ul className="flex flex-row items-center justify-between gap-5 text-lg cursor-pointer">
-            <li>Browse Job</li>
-            <li>Browse Company</li>
-            <li className="font-semibold py-2 px-3 rounded-lg border-2 border-[#f15d5d] hover:bg-[#f15d5d] hover:text-[#fffff1] hover:transition ease-in-out delay-150">Post a job</li>
-          </ul>
-          <FontAwesomeIcon icon={faStar} className="text-2xl" />
+            <ul className="flex flex-row items-center justify-between gap-5 text-lg cursor-pointer">
+              <li className="hover:text-[#f15d5d]">Browse Job</li>
+              <li className="hover:text-[#f15d5d]">Browse Company</li>
+              <li className="font-semibold py-2 px-3 rounded-lg border-2 border-[#f15d5d] hover:bg-[#f15d5d] hover:text-[#fffff1] hover:transition ease-in-out delay-150">
+                Post a job
+              </li>
+            </ul>
+            <FontAwesomeIcon icon={faHeart} className="text-2xl" />
           </div>
         </div>
         <div className="lg:hidden">
           <Logo />
         </div>
         <div className="lg:hidden">
-          <FontAwesomeIcon icon={faStar} className="text-2xl" />
+          <FontAwesomeIcon icon={faHeart} className="text-2xl" />
         </div>
       </div>
     </nav>

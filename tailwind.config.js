@@ -9,7 +9,8 @@ export default {
     fontFamily: {
       nunito: ['nunito', 'Nunito'],
       helvetica: ['helvetica', 'sans-serif'],
-      Arial: [ 'Arial', 'sans-serif']
+      Arial: [ 'Arial', 'sans-serif'],
+      europa: ['europa', 'sans-serif']
     }
   },
   plugins: [],
