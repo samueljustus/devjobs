@@ -14,7 +14,7 @@ function Footer() {
       <div>
         <div>
           <h2 className="text-[#fffff1] italic">Browse Jobs</h2>
-          
+        
         </div>
         <div>
           <h2 className="text-[#fffff1] italic">Company</h2>
