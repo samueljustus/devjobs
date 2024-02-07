@@ -23,24 +23,24 @@ function LatestJobList() {
           </p>
         </div>
         {latestJobData ? (
-          <ul className="lg:w-[60%]">
-            {latestJobData.results.map(() => {
-            return ( <li className="flex flex-col gap-2 mb-8 border-b-2 border-[#f2f2f2] pb-5">
+          <ul className="lg:w-[60%] mt-7 lg:mt-0">
+            {latestJobData.results.map((data) => {
+            return ( <li key={data.id} className="flex flex-col gap-2 mb-8 border-b-2 border-[#f2f2f2] pb-5">
               {/* first div */}
               <div className="flex flex-row justify-between">
                 <div className="flex flex-row items-center gap-2">
-                  <div className=" hidden md:block md:max-w-5">
+                  {/* <div className=" hidden md:block md:max-w-5">
                     <img
                       src="/public/img/pexels-unchalee-srirugsar-85773.jpg"
                       alt="rose"
                     />
-                  </div>
+                  </div> */}
                   <div>
                     <p className="font-base font-Arial text-[#9999b7] cursor-pointer">
-                      Woo Network
+                      {data.company.display_name}
                     </p>
-                    <p className="font-base font-helvetica font-bold text-[#1b1b1b] cursor-pointer">
-                      Frontend Developer
+                    <p className="text-base lg:text-xl font-helvetica font-bold text-[#1b1b1b] cursor-pointer mt-1">
+                      {data.title}
                     </p>
                   </div>
                 </div>
@@ -51,11 +51,11 @@ function LatestJobList() {
               </div>
               {/* second div */}
               <div className="flex flex-row justify-between items-center">
-                <p className="bg-[#f3f3f3] py-1 px-2 md:mx-7 text-[#9999b7] font-thin font-Arial">
-                  Permanent
+                <p className="bg-[#f3f3f3] text-[#9999b7] font-thin font-Arial">
+                  {data.contract_time === 'full_time' ? 'Permanent' : 'Contract'}
                 </p>
                 <p className="text-[#9999b7] font-base font-Arial my-2">
-                  30 jun
+                  {new Date(`${data.created}`).toLocaleDateString('en-US',{day:"numeric", month:"short"})}
                 </p>
               </div>
             </li>

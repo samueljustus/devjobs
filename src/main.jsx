@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import JobContextProvider from "./context/jobContext.jsx";
 
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from "react-router-dom";
 import Layout from './component/Layout.jsx'
@@ -15,6 +16,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <JobContextProvider>
     <RouterProvider router={router} />
+    </JobContextProvider>
   </React.StrictMode>
 );
