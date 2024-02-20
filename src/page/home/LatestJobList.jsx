@@ -1,5 +1,5 @@
 import JobListCard from "../../component/JobListCard/JobListCard.jsx";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { useContext } from "react";
@@ -19,7 +19,7 @@ function LatestJobList() {
             The latest job listings we've received accross all categories
           </p>
           <p className="text-center text-[#0057ff] font-medium">
-            <Link>view all jobs</Link>
+            <NavLink to="allJobs">view all jobs</NavLink>
           </p>
         </div>
         {latestJobData ? (

@@ -1,4 +1,5 @@
 import Logo from "./Logo.jsx";
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
@@ -55,7 +56,9 @@ const Header = () => {
           </div>
           <div className="flex justify-between items-center gap-5">
             <ul className="flex flex-row items-center justify-between gap-5 text-lg cursor-pointer">
-              <li className="hover:text-[#f15d5d]">Browse Job</li>
+              <li className="hover:text-[#f15d5d]">
+                <NavLink to="allJobs">Browse Job</NavLink>
+              </li>
               <li className="hover:text-[#f15d5d]">Browse Company</li>
               <li className="font-semibold py-2 px-3 rounded-lg border-2 border-[#f15d5d] hover:bg-[#f15d5d] hover:text-[#fffff1] hover:transition ease-in-out delay-150">
                 Post a job
