@@ -20,7 +20,7 @@ const JobContextProvider = ({ children }) => {
 
   const browseCompleteJob = async () => {
     try {
-      const browseCompleteJobData = await fetch("https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=87e58175&app_key=0decc13310e5a58e6e180a682d690540&results_per_page=20&what=frontend%20developer&what_and=backend%20developer&what_or=fullstack%20developer&max_days_old=3")
+      const browseCompleteJobData = await fetch("https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=87e58175&app_key=0decc13310e5a58e6e180a682d690540&results_per_page=40&what=frontend%20developer&what_and=backend%20developer&what_or=fullstack%20developer&max_days_old=7")
       const response = await browseCompleteJobData.json()
       console.log(response)
       setAllJobs(response)

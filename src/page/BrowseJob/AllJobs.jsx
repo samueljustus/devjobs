@@ -4,13 +4,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { useContext } from "react";
 import { JobContext } from "../../context/jobContext.jsx";
+import JobCategoriesNavigation from '../../component/JobCategoriesNavigation.jsx';
 // import { FaHeart } from "react-icons/fa";
 function AllJobs() {
   const {allJobs, setAllJobs} = useContext(JobContext)
   return (
     <JobListCard>
-    <section className="flex flex-col lg:flex-row lg:justify-between lg:items-start lg:gap-10">
-      <div className=" lg:w-[30%] lg:sticky lg:top-0">
+      <>
+      <JobCategoriesNavigation />
+    <section className="flex flex-col lg:flex-row lg:justify-between lg:items-start lg:gap-10 mt-10 border-t-2 border-[#f2f2f2]">
+      <div className=" lg:w-[30%] lg:sticky lg:top-0 mt-10">
         <h1 className="text-2xl font-bold font-helvetica text-[#1b1b1b] text-center">
           Latest Job Listings
         </h1>
@@ -60,6 +63,7 @@ function AllJobs() {
         </ul>
       ) : null}
     </section>
+    </>
   </JobListCard>
   )
 }
