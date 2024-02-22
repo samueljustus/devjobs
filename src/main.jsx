@@ -7,12 +7,15 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } 
 import Layout from './component/Layout.jsx'
 import Home from './page/home/Home.jsx'
 import JobDetails from "./page/JobDetails/JobDetails.jsx";
+import { useContext } from "react";
+
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
       <Route path='' element={<Home />} />
       <Route path='allJobs' element={<BrowseJobs />} />
-      <Route path=':jobDetails' element={<JobDetails />} />
+      <Route path='jobdetails/:jobDetailsId' element={<JobDetails />} />
     </Route>
   )
 )

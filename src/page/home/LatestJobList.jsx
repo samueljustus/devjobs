@@ -39,12 +39,14 @@ function LatestJobList() {
                   <div className="flex flex-row justify-between">
                     <div className="flex flex-row items-center gap-2">
                       <div>
+                        <NavLink to={`jobdetails/${data.id}`}>
                         <p className="font-base font-Arial text-[#9999b7] cursor-pointer">
                           {data.company.display_name}
                         </p>
                         <p className="text-base lg:text-xl font-helvetica font-bold text-[#1b1b1b] cursor-pointer mt-1">
                           {data.title}
                         </p>
+                        </NavLink>
                       </div>
                     </div>
                     <div onClick={addFavorite}>
