@@ -1,5 +1,5 @@
 import JobListCard from "../../component/JobListCard/JobListCard.jsx";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { useContext, useState } from "react";
@@ -9,9 +9,8 @@ import { FaHeart } from "react-icons/fa";
 
 function LatestJobList() {
   const { latestJobData, setLatestJobData } = useContext(JobContext);
-
   const [isFavorite, setIsFavorite] = useState(false);
-
+console.log(latestJobData)
   const addFavorite = () => {
     setIsFavorite(!isFavorite);
   };
@@ -52,7 +51,7 @@ function LatestJobList() {
                     </div>
                     <div onClick={addFavorite}>
                       {isFavorite ? (
-                        <FaHeart />
+                        <FaHeart className="text-xl" />
                       ) : (
                         <FontAwesomeIcon icon={faHeart} className="text-xl" />
                       )}

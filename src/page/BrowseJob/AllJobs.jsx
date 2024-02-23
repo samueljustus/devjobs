@@ -10,7 +10,7 @@ function AllJobs() {
   const {allJobs, setAllJobs} = useContext(JobContext)
   return (
     <JobListCard>
-      <>
+     
       <JobCategoriesNavigation />
     <section className="flex flex-col lg:flex-row lg:justify-between lg:items-start lg:gap-10 mt-10 border-t-2 border-[#f2f2f2]">
       <div className=" lg:w-[30%] lg:sticky lg:top-0 mt-10">
@@ -22,18 +22,11 @@ function AllJobs() {
         </p>
       </div>
       {allJobs ? (
-        <ul className="lg:w-[60%] mt-7 lg:mt-0">
+        <ul className="lg:w-[60%] mt-7 lg:mt-10">
           {allJobs.results.map((data) => {
           return ( <li key={data.id} className="flex flex-col gap-2 mb-8 border-b-2 border-[#f2f2f2] pb-5">
-            {/* first div */}
             <div className="flex flex-row justify-between">
               <div className="flex flex-row items-center gap-2">
-                {/* <div className=" hidden md:block md:max-w-5">
-                  <img
-                    src="/public/img/pexels-unchalee-srirugsar-85773.jpg"
-                    alt="rose"
-                  />
-                </div> */}
                 <div>
                   <p className="font-base font-Arial text-[#9999b7] cursor-pointer">
                     {data.company.display_name}
@@ -63,7 +56,6 @@ function AllJobs() {
         </ul>
       ) : null}
     </section>
-    </>
   </JobListCard>
   )
 }

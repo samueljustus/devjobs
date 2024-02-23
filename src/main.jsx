@@ -7,7 +7,9 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } 
 import Layout from './component/Layout.jsx'
 import Home from './page/home/Home.jsx'
 import HomeJobDetails from "./page/JobDetails/HomeJobDetails.jsx";
-
+import FrontendJobContextProvider from "./context/FrontendJobContext.jsx";
+import Frontend from "./page/Frontend/Frontend.jsx";
+import BackendJobs from "./page/Backend/BackendJobs.jsx";
 
 
 const router = createBrowserRouter(
@@ -16,14 +18,18 @@ const router = createBrowserRouter(
       <Route path='' element={<Home />} />
       <Route path='allJobs' element={<BrowseJobs />} />
       <Route path='jobdetails/:jobDetailsId' element={<HomeJobDetails />} />
+      <Route path='frontend' element={<Frontend />} />
+      <Route path='backend' element={<BackendJobs />} />
     </Route>
   )
 )
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <FrontendJobContextProvider>
     <JobContextProvider>
     <RouterProvider router={router} />
     </JobContextProvider>
+    </FrontendJobContextProvider>
   </React.StrictMode>
 );

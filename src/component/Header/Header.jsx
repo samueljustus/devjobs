@@ -13,13 +13,16 @@ const Header = () => {
     setOpen(!open);
   };
 
+  const hideSideBar = () => {
+    setOpen(false)
+  }
+
   return (
     <nav className="font-helvetica">
       <div className="flex items-center justify-between my-5 px-5">
         <div onClick={toggleOpen} className="lg:hidden">
           <FontAwesomeIcon icon={faBars} className="text-2xl" />
         </div>
-        {/* the sidebar for mobile */}
         <div
           className={clsx(
             "fixed top-0 right-0 h-full w-[100%] lg:hidden bg-black/30 z-10 transition duration-300 ease-in-out",
@@ -37,19 +40,20 @@ const Header = () => {
             {open && (
               <ul className="py-16 px-5">
                 {navItem.map((item, index) => (
+                  <NavLink key={item.id} to={item.path}>
                   <li
-                    key={index}
+                    key={item.id}
                     className="my-5 font-bold italic text-2xl cursor-pointer"
+                    onClick={hideSideBar}
                   >
                     {item.title}
                   </li>
+                  </NavLink>
                 ))}
               </ul>
             )}
           </div>
         </div>
-
-        {/* navbar for desktop */}
         <div className="hidden lg:flex flex-row items-center justify-between w-screen">
           <div>
             <Logo />
