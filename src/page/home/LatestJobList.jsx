@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { JobContext } from "../../context/jobContext.jsx";
 import { FaHeart } from "react-icons/fa";
 
+
 function LatestJobList() {
   const { latestJobData, setLatestJobData } = useContext(JobContext);
 
