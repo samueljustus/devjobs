@@ -9,9 +9,10 @@ import Home from './page/home/Home.jsx'
 import HomeJobDetails from "./page/JobDetails/HomeJobDetails.jsx";
 import FrontendJobContextProvider from "./context/FrontendJobContext.jsx";
 import Frontend from "./page/Frontend/Frontend.jsx";
-import BackendJobs from "./page/Backend/BackendJobs.jsx";
-
-
+import Backend from './page/Backend/Backend.jsx'
+import BackendJobContextProvider from "./context/BackendJobContext.jsx";
+import FullstackJobContextProvider from './context/FullstackJobContext.jsx'
+import Fullstack from './page/Fullstack/Fullstack.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
@@ -19,17 +20,22 @@ const router = createBrowserRouter(
       <Route path='allJobs' element={<BrowseJobs />} />
       <Route path='jobdetails/:jobDetailsId' element={<HomeJobDetails />} />
       <Route path='frontend' element={<Frontend />} />
-      <Route path='backend' element={<BackendJobs />} />
+      <Route path='backend' element={<Backend />} />
+      <Route path='fullstack' element={<Fullstack />} />
     </Route>
   )
 )
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <FullstackJobContextProvider>
+    <BackendJobContextProvider>
     <FrontendJobContextProvider>
     <JobContextProvider>
     <RouterProvider router={router} />
     </JobContextProvider>
     </FrontendJobContextProvider>
+    </BackendJobContextProvider>
+    </FullstackJobContextProvider>
   </React.StrictMode>
 );

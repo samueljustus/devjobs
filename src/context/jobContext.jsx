@@ -31,6 +31,11 @@ const JobContextProvider = ({ children }) => {
     }
   };
 
+const hoverContext = () => {
+  
+  
+}
+
   useEffect(() => {
     getLatestJob();
     browseCompleteJob();

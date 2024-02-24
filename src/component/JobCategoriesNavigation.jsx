@@ -7,7 +7,7 @@ function JobCategoriesNavigation() {
         <li className="px-4 py-3 bg-[#ffeddf] rounded-full font-semibold text-sm lg:text-base">All</li>
         <Link to="frontend"><li className="px-4 py-3 bg-[#ffeddf] rounded-full font-semibold text-sm lg:text-base">Frontend Developer</li></Link>
         <NavLink to="backend"><li className="px-4 py-3 bg-[#ffeddf] rounded-full font-semibold text-sm lg:text-base">Backend Developer</li></NavLink>
-        <li className="px-4 py-3 bg-[#ffeddf] rounded-full font-semibold text-sm lg:text-base">Fullstack Developer</li>
+        <NavLink to="fullstack"><li className="px-4 py-3 bg-[#ffeddf] rounded-full font-semibold text-sm lg:text-base">Fullstack Developer</li></NavLink>
       </ul>
     </>
   )

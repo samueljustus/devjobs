@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaMoneyCheck } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
+
 import moment from "moment";
 function HomeJobDetails() {
   const { jobDetailsId } = useParams();
