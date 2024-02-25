@@ -13,10 +13,12 @@ import Backend from './page/Backend/Backend.jsx'
 import BackendJobContextProvider from "./context/BackendJobContext.jsx";
 import FullstackJobContextProvider from './context/FullstackJobContext.jsx'
 import Fullstack from './page/Fullstack/Fullstack.jsx'
+import About from "./page/About/About.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
       <Route path='' element={<Home />} />
+      <Route path='about' element={<About />} />
       <Route path='allJobs' element={<BrowseJobs />} />
       <Route path='jobdetails/:jobDetailsId' element={<HomeJobDetails />} />
       <Route path='frontend' element={<Frontend />} />

@@ -3,19 +3,24 @@ import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navItem } from "/src/Data/NavItem.jsx";
 import clsx from "clsx";
 const Header = () => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    open ? document.body.style.overflow = "hidden" : document.body.style.overflow = "unset"
+
+  }, [open])
 
   const toggleOpen = () => {
     setOpen(!open);
   };
 
   const hideSideBar = () => {
-    setOpen(false)
-  }
+    setOpen(false);
+  };
 
   return (
     <nav className="font-helvetica">
@@ -41,13 +46,13 @@ const Header = () => {
               <ul className="py-16 px-5">
                 {navItem.map((item, index) => (
                   <NavLink key={item.id} to={item.path}>
-                  <li
-                    key={item.id}
-                    className="my-5 font-bold italic text-2xl cursor-pointer"
-                    onClick={hideSideBar}
-                  >
-                    {item.title}
-                  </li>
+                    <li
+                      key={item.id}
+                      className="my-5 font-bold italic text-2xl cursor-pointer"
+                      onClick={hideSideBar}
+                    >
+                      {item.title}
+                    </li>
                   </NavLink>
                 ))}
               </ul>

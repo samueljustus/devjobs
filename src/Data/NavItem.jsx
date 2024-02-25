@@ -3,7 +3,7 @@ export const navItem = [
     { title: "Back End Developer Jobs", id: 1, path: 'backend' },
     { title: "Fullstack Developer Jobs", id: 2, path: 'fullstack' },
     { title: "Post a Job", id: 3},
-    { title: "About", id: 4 },
+    { title: "About", id: 4, path: 'about' },
     { title: "Why list with us", id: 5 },
     { title: "Contact us", id: 6 },
   ];

@@ -26,7 +26,7 @@ function FullstackJobs() {
           Latest Job Listings
         </h1>
         <p className="py-3 text-center text-lg text-[#b0b0b0]">
-          The latest job listings we've received accross all categories
+          The latest job listings we've received accross Fullstack Job category
         </p>
       </div>
       {fullstackJobData ? (
