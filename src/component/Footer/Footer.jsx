@@ -1,6 +1,11 @@
-
+import { useLocation } from "react-router-dom";
 
 function Footer() {
+  const location = useLocation()
+  const hideFooterForPath = ['/postjob']
+  if (hideFooterForPath.includes(location.pathname)) {
+    return <></>
+  }
   return (
     <footer className="bg-[#1b1b1b] py-3 px-5 font-Arial">
       <p className="text-[#fffff1] my-5 text-lg">

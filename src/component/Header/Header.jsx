@@ -69,9 +69,9 @@ const Header = () => {
                 <NavLink to="allJobs">Browse Job</NavLink>
               </li>
               <li className="hover:text-[#f15d5d]">Browse Company</li>
-              <li className="font-semibold py-2 px-3 rounded-lg border-2 border-[#f15d5d] hover:bg-[#f15d5d] hover:text-[#fffff1] hover:transition ease-in-out delay-150">
+              <NavLink to="postjob"><li className="font-semibold py-2 px-3 rounded-lg border-2 border-[#f15d5d] hover:bg-[#f15d5d] hover:text-[#fffff1] hover:transition ease-in-out delay-150">
                 Post a job
-              </li>
+              </li></NavLink>
             </ul>
             <FontAwesomeIcon icon={faHeart} className="text-2xl" />
           </div>
