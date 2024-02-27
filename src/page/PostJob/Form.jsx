@@ -14,6 +14,18 @@ function Form() {
         <input type="text" />
         </label>
       </section>
+      <section>
+        <h2>2. Tell us about the role</h2>
+        <label htmlFor="">Job title*
+        <input type="text" />
+        </label>
+      </section>
+      <section>
+        <h2>2. Tell us about the role</h2>
+        <label htmlFor="">Job title*
+        <input type="text" />
+        </label>
+      </section>
     </form>
   );
 }
