@@ -16,7 +16,7 @@ function PostJob() {
             list on JustRemote.
           </p>
         </div>
-        <div>
+        <div className="mt-10">
             <Form />
         </div>
       </main>
