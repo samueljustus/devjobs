@@ -12,8 +12,12 @@ function Form() {
     formState: { errors },
   } = useForm();
 
+  const onSubmit = (value) => {
+    console.log(value)
+  }
+
   return (
-    <form className="font-Arial">
+    <form className="font-Arial" onSubmit={handleSubmit(onSubmit)}>
       <section>
         <h2 className="bg-[#f15d5d] text-[#ffffff] uppercase text-xs italic w-32 px-3 py-1">
           1. listing type
@@ -27,6 +31,7 @@ function Form() {
             id="inhouse"
             name="inhouse-recruiter"
             className="hidden peer/inhouse"
+            {...register("inhouse-recruiter")}
           />
           <label
             htmlFor="inhouse"
@@ -39,6 +44,7 @@ function Form() {
             id="recruiter"
             name="inhouse-recruiter"
             className="hidden peer/recruiter"
+            {...register("inhouse-recruiter")}
           />
           <label
             htmlFor="recruiter"
@@ -62,8 +68,13 @@ function Form() {
           <input
             type="text"
             id="jobtitle"
-            className="border-2 border-[#dddddd] w-[100%] h-20 outline-none px-3 text-sm"
+            name="jobtitle"
+            className={`${errors.jobtitle ? 'border border-red-500' : 'border-2 border-[#dddddd]'}  w-[100%] h-20 outline-none px-3 text-sm`}
+            {...register("jobtitle", {
+              required: "please provide information about the role"
+            })}
           />
+          {errors.jobtitle && <small className="text-sx text-red-500">{errors.jobtitle.message}</small>}
           <div className="mb-7">
             <p className="text-sm uppercase mt-4 mb-3">job type*</p>
             <input
@@ -71,6 +82,9 @@ function Form() {
               id="permanent"
               name="permanent-contract"
               className="hidden peer/permanent"
+              {...register("permanent-contract", {
+                required: 'please select a job type'
+              })}
             />
             <label
               htmlFor="permanent"
@@ -83,6 +97,7 @@ function Form() {
               id="contract"
               name="permanent-contract"
               className="hidden peer/contract"
+              {...register("permanent-contract")}
             />
             <label
               htmlFor="contract"
@@ -90,7 +105,8 @@ function Form() {
             >
               contract
             </label>
-          </div>
+            {errors["permanent-contract"] && <small className="text-sx text-red-500 block">{errors["permanent-contract"].message}</small> }
+            </div>
           <div>
             <p className="text-sm uppercase mt-4 mb-3">
               fully or partially remote*
@@ -373,7 +389,49 @@ function Form() {
           payment details
         </h2>
         <div className="p-3">
+          <div>
+          <label
+            htmlFor="first-name"
+            className=" block text-sm uppercase mt-4 mb-2"
+          >
+           your First name*
+          </label>
+          <input
+            type="text"
+            id="first-name"
+            className="border-2 border-[#dddddd] w-[100%] h-16 outline-none px-3 text-sm"
+          />
+          </div>
+          <div>
+          <label
+            htmlFor="surname"
+            className=" block text-sm uppercase mt-4 mb-2"
+          >
+           your surname name*
+          </label>
+          <input
+            type="text"
+            id="surname"
+            className="border-2 border-[#dddddd] w-[100%] h-16 outline-none px-3 text-sm"
+          />
+          </div>
+          <div>
+          <label
+            htmlFor="email"
+            className=" block text-sm uppercase mt-4 mb-2"
+          >
+            your email*
+          </label>
+          <input
+            type="text"
+            id="email"
+            className="border-2 border-[#dddddd] w-[100%] h-16 outline-none px-3 text-sm"
+          />
+          </div>
           <Paypal />
+          <div>
+          <button type="submit">submit form</button>
+          </div>
         </div>
       </section>
     </form>
