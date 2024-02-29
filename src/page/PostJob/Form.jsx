@@ -3,6 +3,7 @@ import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import { techStack } from "../../Data/DropDownSelect";
 import { tools } from "../../Data/DropDownSelect";
+import Paypal from "../../component/Paypal";
 function Form() {
   const animatedComponent = makeAnimated();
   const {
@@ -222,7 +223,9 @@ function Form() {
             />
           </div>
           <div className="mb-7">
-            <p className="text-sm uppercase mt-4 mb-3">resident of a specific country requirements*</p>
+            <p className="text-sm uppercase mt-4 mb-3">
+              resident of a specific country requirements*
+            </p>
             <input
               type="radio"
               id="specific-country-required"
@@ -247,47 +250,136 @@ function Form() {
             >
               No
             </label>
-          <div className="mb-7 mt-7 hidden peer-checked/no:block">
-            <p className="text-sm uppercase mt-4 mb-3">minimum working hour overlap requirements*</p>
-            <input
-              type="radio"
-              id="working-hour-required"
-              name="working-hours"
-              className="hidden peer/yes"
-            />
-            <label
-              htmlFor="working-hour-required"
-              className="px-2 py-1 border border-[#f2f2f2] text-[#1b1b1b] peer-checked/yes:bg-[#1b1b1b] peer-checked/yes:text-[#ffff]"
-            >
-              Yes
-            </label>
-            <input
-              type="radio"
-              id="working-hours-not-required"
-              name="working-hours"
-              className="hidden peer/no"
-            />
-            <label
-              htmlFor="working-hours-not-required"
-              className="px-2 py-1 border border-[#f2f2f2] text-[#1b1b1b] peer-checked/no:bg-[#1b1b1b] peer-checked/no:text-[#ffffff]"
-            >
-              No
-            </label>
+            <div className="mb-7 mt-7 hidden peer-checked/no:block">
+              <p className="text-sm uppercase mt-4 mb-3">
+                minimum working hour overlap requirements*
+              </p>
+              <input
+                type="radio"
+                id="working-hour-required"
+                name="working-hours"
+                className="hidden peer/yes"
+              />
+              <label
+                htmlFor="working-hour-required"
+                className="px-2 py-1 border border-[#f2f2f2] text-[#1b1b1b] peer-checked/yes:bg-[#1b1b1b] peer-checked/yes:text-[#ffff]"
+              >
+                Yes
+              </label>
+              <input
+                type="radio"
+                id="working-hours-not-required"
+                name="working-hours"
+                className="hidden peer/no"
+              />
+              <label
+                htmlFor="working-hours-not-required"
+                className="px-2 py-1 border border-[#f2f2f2] text-[#1b1b1b] peer-checked/no:bg-[#1b1b1b] peer-checked/no:text-[#ffffff]"
+              >
+                No
+              </label>
+            </div>
+            <div>
+              <label
+                htmlFor="about"
+                className=" block text-sm uppercase mt-4 mb-3"
+              >
+                Job location*
+              </label>
+              <input
+                type="text"
+                id="how-to-apply"
+                className="border-2 border-[#dddddd] w-[100%] h-14 outline-none px-3 text-sm"
+                placeholder="Search Cities..."
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2 className="bg-[#f15d5d] text-[#ffffff] uppercase text-xs italic w-56 px-3 py-1 mb-5">
+          tell us about your company
+        </h2>
+        <div className="p-3">
+          <label
+            htmlFor="company-name"
+            className=" block text-sm uppercase mt-4 mb-2"
+          >
+            company name*
+          </label>
+          <input
+            type="text"
+            id="company-name"
+            className="border-2 border-[#dddddd] w-[100%] h-16 outline-none px-3 text-sm"
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="headquarters"
+            className=" block text-sm uppercase mt-4 mb-3"
+          >
+            company headquarters*
+          </label>
+          <input
+            type="text"
+            id="headquarters"
+            className="border-2 border-[#dddddd] w-[100%] h-14 outline-none px-3 text-sm"
+            placeholder="Search Cities..."
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="company-website"
+            className=" block text-sm uppercase mt-4 mb-2"
+          >
+            company website*
+          </label>
+          <input
+            type="text"
+            id="company-website"
+            className="border-2 border-[#dddddd] w-[100%] h-16 outline-none px-3 text-sm"
+          />
+          <div>
+            <p className="block text-sm uppercase mt-4 mb-2">Company logo</p>
+            <div className=" flex flex-col items-center justify-center border-2 border-[#dddddd] w-[100%] h-20 border-dotted">
+              <label htmlFor="logo" className="cursor-pointer">
+                Drag in a file or click here to upload a logo (jpeg/png only)
+              </label>
+              <input
+                id="logo"
+                type="file"
+                className=""
+                accept="image/png, image/jpeg"
+              />
+            </div>
           </div>
           <div>
-          <label htmlFor="about" className=" block text-sm uppercase mt-4 mb-3">Job location*</label>
-          <input
+            <label
+              htmlFor="about-company"
+              className=" block text-sm uppercase mt-4 mb-2"
+            >
+              about your company*
+            </label>
+            <input
               type="text"
-              id="how-to-apply"
-              className="border-2 border-[#dddddd] w-[100%] h-14 outline-none px-3 text-sm"
-              placeholder="Search Cities..."
+              id="about-company"
+              className="border-2 border-[#dddddd] w-[100%] h-20 outline-none px-3 text-sm"
             />
           </div>
-          </div>
+        </div>
+      </section>
+      <section className="mt-7">
+        <h2 className="bg-[#f15d5d] text-[#ffffff] uppercase text-xs italic w-36 px-3 py-1 mb-5">
+          payment details
+        </h2>
+        <div className="p-3">
+          <Paypal />
         </div>
       </section>
     </form>
   );
 }
+
+// clientID = 
 
 export default Form;
