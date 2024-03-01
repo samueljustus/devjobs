@@ -17,7 +17,13 @@ function Paypal() {
           <Checkout />
         </PayPalScriptProvider>
       ) : (
-        <button onClick={() => setCheckout(true)}>checkout</button>
+        <button
+          type="submit"
+          onClick={() => setCheckout(true)}
+          className="w-[100%] py-5 text-center mt-5 bg-[#f15d5d] text-[#ffff] rounded-sm"
+        >
+          Post job-$100/30 days
+        </button>
       )}
     </div>
   );
