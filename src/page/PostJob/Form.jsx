@@ -5,12 +5,20 @@ import { techStack } from "../../Data/DropDownSelect";
 import { tools } from "../../Data/DropDownSelect";
 import Paypal from "../../component/Paypal";
 function Form() {
+
+  const initialValues = {
+    workStyle: "fully"
+  }
   const animatedComponent = makeAnimated();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+     
+    }
+  });
 
   const onSubmit = (value) => {
     console.log(value)
@@ -29,6 +37,7 @@ function Form() {
           <input
             type="radio"
             id="inhouse"
+            value="inhouse"
             name="inhouse-recruiter"
             className="hidden peer/inhouse"
             {...register("inhouse-recruiter")}
@@ -42,6 +51,7 @@ function Form() {
           <input
             type="radio"
             id="recruiter"
+            value="recruiter"
             name="inhouse-recruiter"
             className="hidden peer/recruiter"
             {...register("inhouse-recruiter")}
@@ -69,12 +79,12 @@ function Form() {
             type="text"
             id="jobtitle"
             name="jobtitle"
-            className={`${errors.jobtitle ? 'border border-red-500' : 'border-2 border-[#dddddd]'}  w-[100%] h-20 outline-none px-3 text-sm`}
+            className={`${errors.jobtitle ? 'border border-red-500' : 'border-2 border-[#dddddd]'} w-[100%] h-20 outline-none px-3 text-sm`}
             {...register("jobtitle", {
-              required: "please provide information about the role"
+              required: "please provide a job title"
             })}
           />
-          {errors.jobtitle && <small className="text-sx text-red-500">{errors.jobtitle.message}</small>}
+          {errors.jobtitle && <small className="text-sm text-red-500">{errors.jobtitle.message}</small>}
           <div className="mb-7">
             <p className="text-sm uppercase mt-4 mb-3">job type*</p>
             <input
@@ -105,7 +115,7 @@ function Form() {
             >
               contract
             </label>
-            {errors["permanent-contract"] && <small className="text-sx text-red-500 block">{errors["permanent-contract"].message}</small> }
+            {errors["permanent-contract"] && <small className="text-sm text-red-500 block mt-3">{errors["permanent-contract"].message}</small> }
             </div>
           <div>
             <p className="text-sm uppercase mt-4 mb-3">
@@ -114,8 +124,10 @@ function Form() {
             <input
               type="radio"
               id="fully"
-              name="fully-partially"
+              value="workStyle"
+              name="workStyle"
               className="hidden peer/fully"
+              {...register('workStyle')}
             />
             <label
               htmlFor="fully"
@@ -126,7 +138,8 @@ function Form() {
             <input
               type="radio"
               id="partially"
-              name="fully-partially"
+              name="workStyle"
+              value="workStyle"
               className="hidden peer/partially"
             />
             <label
@@ -163,7 +176,7 @@ function Form() {
               closeMenuOnSelect={false}
             />
           </div>
-          <div className="mt-7">
+          {/* <div className="mt-7">
             <label
               htmlFor="about-company"
               className=" block text-sm uppercase mt-4 mb-3"
@@ -175,7 +188,7 @@ function Form() {
               id="about-comapany"
               className="border-2 border-[#dddddd] w-[100%] h-20 outline-none px-3 text-sm"
             />
-          </div>
+          </div> */}
           <div className="mt-7">
             <label
               htmlFor="about-role"
@@ -186,8 +199,13 @@ function Form() {
             <input
               type="text"
               id="about-role"
-              className="border-2 border-[#dddddd] w-[100%] h-20 outline-none px-3 text-sm"
+              name="about_role"
+              className={`${errors.about_role ? 'border border-red-500' : 'border border-[#dddddd]'} w-[100%] h-20 outline-none px-3 text-sm`}
+              {...register('about_role', {
+                required: 'please provide information about the role'
+              })}
             />
+            {errors.about_role && <small className="text-sm text-red-500 block mt-2">{errors.about_role.message}</small>}
           </div>
           <div className="mt-7">
             <label
@@ -199,8 +217,13 @@ function Form() {
             <input
               type="text"
               id="experience"
-              className="border-2 border-[#dddddd] w-[100%] h-20 outline-none px-3 text-sm"
+              name="experience"
+              className={`${errors.experience ? 'border border-red-500' : 'border-2 border-[#dddddd]'} w-[100%] h-20 outline-none px-3 text-sm`}
+              {...register('experience', {
+                required: 'please provide some information about who you are looking for'
+              })}
             />
+             {errors.experience && <small className="text-sm text-red-500 block mt-2">{errors.experience.message}</small>}
           </div>
           <div className="mt-7">
             <label
@@ -212,8 +235,13 @@ function Form() {
             <input
               type="text"
               id="salary"
-              className="border-2 border-[#dddddd] w-[100%] h-20 outline-none px-3 text-sm"
+              name="salary"
+              className={`${errors.salary ? 'border border-red-500' : 'border-2 border-[#dddddd]'} w-[100%] h-20 outline-none px-3 text-sm`}
+              {...register('salary', {
+                required: 'please provide some information about what you offer'
+              })}
             />
+            {errors.salary && <small className="text-sm text-red-500 block mt-2">{errors.salary.message}</small>}
           </div>
           <div className="mt-7">
             <label
@@ -225,8 +253,13 @@ function Form() {
             <input
               type="text"
               id="how-to-apply"
-              className="border-2 border-[#dddddd] w-[100%] h-20 outline-none px-3 text-sm"
+              name="how_to_apply"
+              className={`${errors.how_to_apply ? 'border border-red-500' : 'border-2 border-[#dddddd]'} w-[100%] h-20 outline-none px-3 text-sm`}
+              {...register('how_to_apply', {
+                required: 'please provide some information about how to apply for this position'
+              })}
             />
+            {errors.how_to_apply && <small className="text-sm text-red-500 block mt-2">{errors.how_to_apply.message}</small>}
           </div>
           <div className="my-7">
             <p className="text-sm uppercase mt-4 mb-3">team tools</p>
@@ -297,17 +330,21 @@ function Form() {
             </div>
             <div>
               <label
-                htmlFor="about"
+                htmlFor="job_location"
                 className=" block text-sm uppercase mt-4 mb-3"
               >
                 Job location*
               </label>
               <input
                 type="text"
-                id="how-to-apply"
-                className="border-2 border-[#dddddd] w-[100%] h-14 outline-none px-3 text-sm"
+                id="job_location"
+                className={`${errors.job_location ? 'border border-red-500' : 'border-2 border-[#dddddd]'} w-[100%] h-14 outline-none px-3 text-sm`}
                 placeholder="Search Cities..."
+                {...register("job_location", {
+                  required: 'please provide a location for this job. Ensure you select a location from the dropdown'
+                })}
               />
+              {errors.job_location && <small className="text-sm text-red-500 block mt-2">{errors.job_location.message}</small>}
             </div>
           </div>
         </div>
@@ -317,6 +354,7 @@ function Form() {
           tell us about your company
         </h2>
         <div className="p-3">
+        <div>
           <label
             htmlFor="company-name"
             className=" block text-sm uppercase mt-4 mb-2"
@@ -326,8 +364,13 @@ function Form() {
           <input
             type="text"
             id="company-name"
-            className="border-2 border-[#dddddd] w-[100%] h-16 outline-none px-3 text-sm"
+            name="company_name"
+            className={`${errors.company_name ? 'border border-red-500' : 'border-2 border-[#dddddd]'} w-[100%] h-16 outline-none px-3 text-sm`}
+            {...register("company_name", {
+              required: 'please provide a company name'
+            })}
           />
+          {errors.company_name && <small className="text-sm text-red-500 block mt-2">{errors.company_name.message}</small>}
         </div>
         <div>
           <label
@@ -339,9 +382,14 @@ function Form() {
           <input
             type="text"
             id="headquarters"
-            className="border-2 border-[#dddddd] w-[100%] h-14 outline-none px-3 text-sm"
+            name="headquarters"
+            className={`${errors.headquarters ? 'border border-red-500' : 'border-2 border-[#dddddd]'} w-[100%] h-14 outline-none px-3 text-sm`}
             placeholder="Search Cities..."
+            {...register("headquarters", {
+              required: 'please provide a headquarters location. Ensure you select a location from the dropdown'
+            })}
           />
+          {errors.headquarters && <small className="text-sm text-red-500 block mt-2">{errors.headquarters.message}</small>}
         </div>
         <div>
           <label
@@ -353,8 +401,13 @@ function Form() {
           <input
             type="text"
             id="company-website"
-            className="border-2 border-[#dddddd] w-[100%] h-16 outline-none px-3 text-sm"
+            name="company_website"
+            className={`${errors.comapany_website ? 'border border-red-500' : 'border-2 border-[#dddddd]'} w-[100%] h-16 outline-none px-3 text-sm`}
+            {...register("company_website", {
+              required: 'please provide a company website'
+            })}
           />
+          {errors.company_website && <small className="text-sm text-red-500 block mt-2">{errors.company_website.message}</small>}
           <div>
             <p className="block text-sm uppercase mt-4 mb-2">Company logo</p>
             <div className=" flex flex-col items-center justify-center border-2 border-[#dddddd] w-[100%] h-20 border-dotted">
@@ -379,9 +432,15 @@ function Form() {
             <input
               type="text"
               id="about-company"
-              className="border-2 border-[#dddddd] w-[100%] h-20 outline-none px-3 text-sm"
+              name="about_company"
+              className={`${errors.about_company ? 'border border-red-500' : 'border-2 border-[#dddddd]'} w-[100%] h-20 outline-none px-3 text-sm`}
+              {...register("about_company", {
+                required: 'please provide some information about the company'
+              })}
             />
+            {errors.about_company && <small className="text-sm text-red-500 block mt-2">{errors.about_company.message}</small>}
           </div>
+        </div>
         </div>
       </section>
       <section className="mt-7">
@@ -399,8 +458,13 @@ function Form() {
           <input
             type="text"
             id="first-name"
-            className="border-2 border-[#dddddd] w-[100%] h-16 outline-none px-3 text-sm"
+            name="first_name"
+            className={`${errors.first_name ? 'border border-red-500' : 'border-2 border-[#dddddd]'} w-[100%] h-16 outline-none px-3 text-sm`}
+          {...register("first_name", {
+            required: 'Please provide a first name'
+          })}
           />
+          {errors.first_name && <small className="text-sm text-red-500 block mt-2">{errors.first_name.message}</small>}
           </div>
           <div>
           <label
@@ -412,8 +476,13 @@ function Form() {
           <input
             type="text"
             id="surname"
-            className="border-2 border-[#dddddd] w-[100%] h-16 outline-none px-3 text-sm"
+            name="surname"
+            className={`${errors.surname ? 'border border-red-500' : 'border-2 border-[#dddddd]'} w-[100%] h-16 outline-none px-3 text-sm`}
+            {...register("surname", {
+              required: 'please provide a surname'
+            })}
           />
+          {errors.surname && <small className="text-sm text-red-500 block mt-2">{errors.surname.message}</small>}
           </div>
           <div>
           <label
@@ -425,8 +494,15 @@ function Form() {
           <input
             type="text"
             id="email"
-            className="border-2 border-[#dddddd] w-[100%] h-16 outline-none px-3 text-sm"
+            name="email"
+            className={`${errors.email ? 'border border-red-500' : 'border-2 border-[#dddddd]'} w-[100%] h-16 outline-none px-3 text-sm`}
+            {...register('email', {
+              required: true,
+              pattern:  /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/
+            })}
           />
+          {errors.email?.type === "required" && <small className="text-sm text-red-500 block mt-2">Please provide a contact email</small>}
+          {errors.email?.type === "pattern" && <small className="text-sm text-red-500 block mt-2">Please provide a valid contact email</small>}
           </div>
           <Paypal />
           <div>
