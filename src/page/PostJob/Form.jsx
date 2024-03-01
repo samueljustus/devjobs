@@ -4,6 +4,11 @@ import makeAnimated from "react-select/animated";
 import { techStack } from "../../Data/DropDownSelect";
 import { tools } from "../../Data/DropDownSelect";
 import Paypal from "../../component/Paypal";
+import CheckoutContextProvider from "../../context/CheckoutContext";
+import Button from "./Button";
+import { useContext } from "react";
+import { CheckoutContext } from "../../context/CheckoutContext";
+
 function Form() {
   const initialValues = {
     agency: "inhouse",
@@ -25,8 +30,11 @@ function Form() {
     },
   });
 
+  const {checkout, setCheckout} = useContext(CheckoutContext)
+  console.log(checkout)
   const onSubmit = (value) => {
     console.log(value);
+    setCheckout(true)
   };
 
   return (
@@ -633,9 +641,11 @@ function Form() {
               </small>
             )}
           </div>
+          <CheckoutContextProvider>
           <Paypal />
+          </CheckoutContextProvider>
           <div>
-            <button type="submit">submit form</button>
+          {/* <Button /> */}
           </div>
         </div>
       </section>
@@ -643,6 +653,5 @@ function Form() {
   );
 }
 
-// clientID =
 
 export default Form;

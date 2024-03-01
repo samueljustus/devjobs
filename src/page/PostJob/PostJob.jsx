@@ -1,3 +1,4 @@
+import CheckoutContextProvider from "../../context/CheckoutContext.jsx";
 import  Form  from "./Form.jsx";
 
 
@@ -17,7 +18,9 @@ function PostJob() {
           </p>
         </div>
         <div className="mt-10">
+          <CheckoutContextProvider>
             <Form />
+          </CheckoutContextProvider>
         </div>
       </main>
     </div>
