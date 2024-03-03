@@ -3,14 +3,16 @@ import Select from "react-select";
 import { techStack } from "../../Data/DropDownSelect";
 import makeAnimated from "react-select/animated";
 import { tools } from "../../Data/DropDownSelect";
-import { useFormContext } from "react-hook-form";
+import { useFormContext} from "react-hook-form";
 function AboutRole() {   
       const animatedComponent = makeAnimated();
       const {
         register,
         formState: {errors},
       } = useFormContext();
-      
+
+    
+     
   return (
     <section>
       <h2 className="bg-[#f15d5d] text-[#ffffff] uppercase text-xs italic w-52 px-3 py-1">

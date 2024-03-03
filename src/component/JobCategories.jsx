@@ -4,8 +4,7 @@ import { useLocation } from "react-router-dom";
 
 const JobCategories = () => {
 const location = useLocation()
-console.log('re render')
-const hideJobCategoriesforPath = ['/postjob']
+const hideJobCategoriesforPath = ['/postjob', '/list-your-remote-role', '/about']
 
 if (hideJobCategoriesforPath.includes(location.pathname)) {
   return <></>

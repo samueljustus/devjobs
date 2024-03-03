@@ -15,6 +15,7 @@ import FullstackJobContextProvider from './context/FullstackJobContext.jsx'
 import Fullstack from './page/Fullstack/Fullstack.jsx'
 import About from "./page/About/About.jsx";
 import PostJob from "./page/PostJob/PostJob.jsx";
+import WhyListWithUs from "./page/WhyListWithUs/WhyListWithUs.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route path='backend' element={<Backend />} />
       <Route path='fullstack' element={<Fullstack />} />
       <Route path='postjob' element={<PostJob />} />
+      <Route path='list-your-remote-role' element={<WhyListWithUs />} />
     </Route>
   )
 )
