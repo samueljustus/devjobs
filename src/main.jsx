@@ -16,6 +16,7 @@ import Fullstack from './page/Fullstack/Fullstack.jsx'
 import About from "./page/About/About.jsx";
 import PostJob from "./page/PostJob/PostJob.jsx";
 import WhyListWithUs from "./page/WhyListWithUs/WhyListWithUs.jsx";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>

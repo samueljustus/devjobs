@@ -37,7 +37,7 @@ function Form() {
           <AboutRole  />
           <AboutCompany />
           <PaymentDetails />
-          <div>
+          <div className="p-3">
             {checkout ? (
               <PayPalScriptProvider options={initialOptions}>
                 <Checkout />

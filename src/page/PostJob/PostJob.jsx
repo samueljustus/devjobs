@@ -4,7 +4,7 @@ import  Form  from "./Form.jsx";
 
 function PostJob() {
   return (
-    <div>
+    <div className="w-[95%]">
       <main>
         <div className="px-5 font-Arial">
           <h1 className="text-3xl italic font-bold mt-10 mb-5">Post a job</h1>
