@@ -1,27 +1,33 @@
-
-import JobListCard from  '../../component/JobListCard/JobListCard.jsx'
+import JobListCard from "../../component/JobListCard/JobListCard.jsx";
 import { useContext, useState } from "react";
 import { JobContext } from "../../context/jobContext.jsx";
-import JobCategoriesNavigation from '../../component/JobCategoriesNavigation.jsx';
-import { NavLink } from 'react-router-dom';
+import JobCategoriesNavigation from "../../component/JobCategoriesNavigation.jsx";
+import { NavLink } from "react-router-dom";
 import { FcGlobe } from "react-icons/fc";
 import { TbMoneybag } from "react-icons/tb";
 import moment from "moment";
+import LoadingScreen from "../../component/LoadingScreen.jsx";
 function AllJobs() {
-  const {allJobs, setAllJobs} = useContext(JobContext)
+  const { allJobs, setAllJobs } = useContext(JobContext);
   const [hover, setHover] = useState(null);
 
   const mouseEnter = (i) => {
-    setHover(i)
+    setHover(i);
   };
 
   const mouseLeave = (i) => {
-    setHover(i)
+    setHover(i);
   };
   return (
-    <JobListCard> 
+    <JobListCard>
       <JobCategoriesNavigation />
-      <section className="flex flex-col lg:flex-row lg:justify-between lg:items-start lg:gap-10 mt-10">
+      <section
+        className={`flex flex-col lg:flex-row ${
+          !allJobs
+            ? "lg:items-center lg:justify-around mt-10"
+            : "lg:justify-between first-letter:lg:items-start lg:gap-10 mt-10"
+        }`}
+      >
         <div className=" lg:w-[30%] lg: sticky lg:top-0">
           <h1 className="text-2xl font-bold font-helvetica text-[#1b1b1b] text-center">
             Latest Job Listings
@@ -30,7 +36,9 @@ function AllJobs() {
             The latest job listings we've received accross all categories
           </p>
         </div>
-        {allJobs ? (
+        {!allJobs ? (
+          <LoadingScreen />
+        ) : (
           <ul className="lg:w-[60%] mt-7 lg:mt-0">
             {allJobs.results.map((data, i) => {
               return (
@@ -53,13 +61,11 @@ function AllJobs() {
                         </NavLink>
                       </div>
                     </div>
-                    {hover === i ? <button
-                      className=" mt-5 font-bold py-3 px-10 rounded-lg bg-[#f15d5d] text-[#ffffff] hover:opacity-75 hover:transition ease-in-out delay-150"
-                    >
-                       Apply
-                    </button>  : null
-                        
-                      }
+                    {hover === i ? (
+                      <button className=" mt-5 font-bold py-3 px-10 rounded-lg bg-[#f15d5d] text-[#ffffff] hover:opacity-75 hover:transition ease-in-out delay-150">
+                        Apply
+                      </button>
+                    ) : null}
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center gap-2">
@@ -90,10 +96,10 @@ function AllJobs() {
               );
             })}
           </ul>
-        ) : null}
+        )}
       </section>
-  </JobListCard>
-  )
+    </JobListCard>
+  );
 }
 
-export default AllJobs
+export default AllJobs;

@@ -5,6 +5,7 @@ import JobCategoriesNavigation from "../../component/JobCategoriesNavigation";
 import { FcGlobe } from "react-icons/fc";
 import { TbMoneybag } from "react-icons/tb";
 import moment from "moment";
+import LoadingScreen from "../../component/LoadingScreen";
 function BackendJobs() {
   const { backendJobData, setBackendJobData } = useContext(BackendJobContext);
   const [hover, setHover] = useState(null);
@@ -28,7 +29,13 @@ function BackendJobs() {
   return (
     <JobListCard>
       <JobCategoriesNavigation />
-      <section className="flex flex-col lg:flex-row lg:justify-between lg:items-start lg:gap-10 mt-10">
+      <section
+        className={`flex flex-col lg:flex-row ${
+          !backendJobData
+            ? "lg:items-center lg:justify-around mt-10"
+            : "lg:justify-between first-letter:lg:items-start lg:gap-10 mt-10"
+        }`}
+      >
         <div className=" lg:w-[30%] lg: sticky lg:top-0">
           <h1 className="text-2xl font-bold font-helvetica text-[#1b1b1b] text-center">
             Latest Job Listings
@@ -37,7 +44,9 @@ function BackendJobs() {
             The latest job listings we've received accross Backend Job category
           </p>
         </div>
-        {backendJobData ? (
+        {!backendJobData ? (
+          <LoadingScreen />
+        ) : (
           <ul className="lg:w-[60%] mt-7 lg:mt-0">
             {backendJobData.results.map((data, i) => {
               return (
@@ -98,7 +107,7 @@ function BackendJobs() {
               );
             })}
           </ul>
-        ) : null}
+        )}
       </section>
     </JobListCard>
   );
