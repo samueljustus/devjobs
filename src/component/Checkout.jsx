@@ -1,5 +1,3 @@
-// import react, { useRef, useEffect } from "react";
-import { useState } from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 function Checkout() {
   const onCreateOrder = (data, actions) => {

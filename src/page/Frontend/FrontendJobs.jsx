@@ -3,7 +3,6 @@ import JobListCard from '../../component/JobListCard/JobListCard';
 import { useContext, useState } from 'react'
 import { FrontendJobContext } from '../../context/FrontendJobContext'
 import JobCategoriesNavigation from '../../component/JobCategoriesNavigation';
-import { NavLink } from 'react-router-dom';
 import { FcGlobe } from "react-icons/fc";
 import { TbMoneybag } from "react-icons/tb";
 import moment from "moment";
@@ -11,6 +10,7 @@ function FrontendJobs() {
    const {frontendJobData, setFrontEndJobData} = useContext(FrontendJobContext)
    const [hover, setHover] = useState(null);
 
+   console.log(frontendJobData)
   const mouseEnter = (i) => {
     setHover(i)
   };
@@ -18,6 +18,15 @@ function FrontendJobs() {
   const mouseLeave = (i) => {
     setHover(i)
   };
+
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+    if (newWindow) newWindow.opener = null
+  }
+
+  const handleJobApplication = (url) => {
+    return () => openInNewTab(url)
+  }
   return (
     <JobListCard>
       <JobCategoriesNavigation />
@@ -41,20 +50,19 @@ function FrontendJobs() {
                   onMouseLeave={() => mouseLeave(i)}
                 >
                   <div className="flex flex-row justify-between">
-                    <div className="flex flex-row items-center gap-2">
+                    <div onClick={handleJobApplication(`${data.redirect_url}`)} className="flex flex-row items-center gap-2">
                       <div>
-                        <NavLink>
                           <p className="font-base font-Arial text-[#9999b7] cursor-pointer">
                             {data.company.display_name}
                           </p>
                           <p className="text-base lg:text-xl font-helvetica font-bold text-[#1b1b1b] cursor-pointer mt-1">
                             {data.title}
                           </p>
-                        </NavLink>
                       </div>
                     </div>
                     {hover === i ? <button
                       className=" mt-5 font-bold py-3 px-10 rounded-lg bg-[#f15d5d] text-[#ffffff] hover:opacity-75 hover:transition ease-in-out delay-150"
+                      onClick={handleJobApplication(`${data.redirect_url}`)}
                     >
                        Apply
                     </button>  : null

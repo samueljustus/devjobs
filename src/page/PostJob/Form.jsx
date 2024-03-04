@@ -28,7 +28,7 @@ function Form() {
   return (
     <FormProvider {...form}>
       <div className="md:flex md:flex-row">
-        <form className="font-Arial md:w-[40%] h-screen" onSubmit={form.handleSubmit(onSubmit)}>
+        <form className="font-Arial md:w-[40%] h-screen md:overflow-y-scroll" onSubmit={form.handleSubmit(onSubmit)}>
           <FormCopy />
           <ListingType />
           <AboutRole />

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import FrontendCopy from './FrontendCopy'
 import FrontendJobs from './FrontendJobs'
 

@@ -1,18 +1,16 @@
-import React from "react";
+
 import Select from "react-select";
 import { techStack } from "../../Data/DropDownSelect";
 import makeAnimated from "react-select/animated";
 import { tools } from "../../Data/DropDownSelect";
-import { useFormContext} from "react-hook-form";
-function AboutRole() {   
-      const animatedComponent = makeAnimated();
-      const {
-        register,
-        formState: {errors},
-      } = useFormContext();
+import { useFormContext } from "react-hook-form";
+function AboutRole() {
+  const animatedComponent = makeAnimated();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
-    
-     
   return (
     <section>
       <h2 className="bg-[#f15d5d] text-[#ffffff] uppercase text-xs italic w-52 px-3 py-1">
@@ -45,7 +43,8 @@ function AboutRole() {
           <input
             type="radio"
             id="permanent"
-            name="permanent-contract"
+            // name="permanent-contract"
+            value="permanent"
             className="hidden peer/permanent"
             {...register("permanent-contract", {
               required: "please select a job type",
@@ -60,7 +59,8 @@ function AboutRole() {
           <input
             type="radio"
             id="contract"
-            name="permanent-contract"
+            // name="permanent-contract"
+            value="contract"
             className="hidden peer/contract"
             {...register("permanent-contract")}
           />
@@ -84,7 +84,7 @@ function AboutRole() {
             type="radio"
             id="fully"
             value="fully"
-            checked={true}
+            // checked={true}
             className="hidden peer/fully"
             {...register("workStyle")}
           />
@@ -344,7 +344,6 @@ function AboutRole() {
           </div>
         </div>
       </div>
-      <button>submit</button>
     </section>
   );
 }
