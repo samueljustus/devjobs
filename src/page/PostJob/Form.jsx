@@ -7,6 +7,7 @@ import ListingType from "./ListingType";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Checkout from "../../component/Checkout";
 import Preview from "./Preview";
+import FormCopy from "./FormCopy";
 const initialOptions = {
   "client-id":
     "AeMCnh8XaGMy6uppsHT5u5CG6RRimT9mOk30L5Y2IUwNFGzLOWgYMb4ZqKqJ3oNkHMrf3Fq1xOoBsAFH",
@@ -17,24 +18,20 @@ const initialOptions = {
 function Form() {
   const form = useForm();
 
-
-
   const onSubmit = (value) => {
     console.log(value);
     setCheckout(true);
   };
 
-
-
   const [checkout, setCheckout] = useState(false);
-  
 
   return (
     <FormProvider {...form}>
-      <div>
-        <form className="font-Arial" onSubmit={form.handleSubmit(onSubmit)}>
+      <div className="md:flex md:flex-row">
+        <form className="font-Arial md:w-[40%]" onSubmit={form.handleSubmit(onSubmit)}>
+          <FormCopy />
           <ListingType />
-          <AboutRole  />
+          <AboutRole />
           <AboutCompany />
           <PaymentDetails />
           <div className="p-3">
@@ -52,9 +49,9 @@ function Form() {
             )}
           </div>
         </form>
-          <Preview />
-      </div>
-    </FormProvider> 
+        <Preview />
+        </div>
+    </FormProvider>
   );
 }
 

@@ -2,19 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* 
 *, *::before, *::after {
    box-sizing: inherit;
  }
  
- html {
-   /* this makes sure the padding and the border is included in the box sizing */
-   box-sizing: border-box;
-   overflow-x: hidden;
- }
  
- html body {
+ 
+ html body * {
    padding: 0;
    margin: 0;
    overflow-x: inherit;
+ } */
+
+
+/* 
+ header {
+  overflow-x: hidden;
+ } */
+
+ body {
+  
+  overflow-x: hidden;
+  box-sizing: border-box;
+
  }
+
+ /* html {
+  box-sizing: border-box;
+  overflow-x: hidden
+} */

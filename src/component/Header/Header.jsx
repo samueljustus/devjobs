@@ -8,11 +8,13 @@ import { navItem } from "/src/Data/NavItem.jsx";
 import clsx from "clsx";
 const Header = () => {
   const [open, setOpen] = useState(false);
+  
 
   useEffect(() => {
-    open ? document.body.style.overflow = "hidden" : document.body.style.overflow = "unset"
-
-  }, [open])
+    open
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "unset");
+  }, [open]);
 
   const toggleOpen = () => {
     setOpen(!open);
@@ -23,7 +25,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="font-helvetica">
+    <nav className="font-helvetica px-5">
       <div className="flex items-center justify-between my-5 px-5">
         <div onClick={toggleOpen} className="lg:hidden">
           <FontAwesomeIcon icon={faBars} className="text-2xl" />
@@ -68,12 +70,14 @@ const Header = () => {
               <li className="hover:text-[#f15d5d]">
                 <NavLink to="allJobs">Browse Job</NavLink>
               </li>
-              <li className="hover:text-[#f15d5d]">Browse Company</li>
-              <NavLink to="postjob"><li className="font-semibold py-2 px-3 rounded-lg border-2 border-[#f15d5d] hover:bg-[#f15d5d] hover:text-[#fffff1] hover:transition ease-in-out delay-150">
-                Post a job
-              </li></NavLink>
+              <NavLink to="about"><li className="hover:text-[#f15d5d]">About</li></NavLink>
+              <NavLink to="postjob">
+                <li className="font-semibold py-2 px-3 rounded-lg border-2 border-[#f15d5d] hover:bg-[#f15d5d] hover:text-[#fffff1] hover:transition ease-in-out delay-150">
+                  Post a job
+                </li>
+              </NavLink>
             </ul>
-            <FontAwesomeIcon icon={faHeart} className="text-2xl" />
+            {/* <FontAwesomeIcon icon={faHeart} className="text-2xl" /> */}
           </div>
         </div>
         <div className="lg:hidden">

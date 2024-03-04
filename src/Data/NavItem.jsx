@@ -5,5 +5,5 @@ export const navItem = [
     { title: "Post a Job", id: 3, path: 'postjob'},
     { title: "About", id: 4, path: 'about' },
     { title: "Why list with us", id: 5, path: 'list-your-remote-role' },
-    { title: "Contact us", id: 6 },
+  
   ];
