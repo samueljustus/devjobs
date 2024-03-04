@@ -11,7 +11,6 @@ import {
 } from "react-router-dom";
 import Layout from "./component/Layout.jsx";
 import Home from "./page/home/Home.jsx";
-import HomeJobDetails from "./page/JobDetails/HomeJobDetails.jsx";
 import FrontendJobContextProvider from "./context/FrontendJobContext.jsx";
 import Frontend from "./page/Frontend/Frontend.jsx";
 import Backend from "./page/Backend/Backend.jsx";
@@ -28,7 +27,6 @@ const router = createBrowserRouter(
       <Route path="" element={<Home />} />
       <Route path="about" element={<About />} />
       <Route path="allJobs" element={<BrowseJobs />} />
-      <Route path="jobdetails/:jobDetailsId" element={<HomeJobDetails />} />
       <Route path="frontend" element={<Frontend />} />
       <Route path="backend" element={<Backend />} />
       <Route path="fullstack" element={<Fullstack />} />
